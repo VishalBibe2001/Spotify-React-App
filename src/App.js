@@ -42,15 +42,16 @@ function App() {
    */
   const handleSearchBarChange = (e) => {
     const value = e.target.value?.toLowerCase();
+    let list = selectedTab === "Top Tracks" ? allSongsList?.filter((ob)=> ob?.top_track) : allSongsList
     if (value) {
-      const filterList = selectedSongsList?.filter(
+      const filterList = list?.filter(
         (obj) =>
           obj?.name?.toLowerCase().includes(value) ||
           obj?.artist?.toLowerCase().includes(value)
       );
       setSelectedSongsList(filterList);
     } else {
-      setSelectedSongsList(allSongsList);
+      setSelectedSongsList(list);
     }
   };
 
