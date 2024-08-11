@@ -1,38 +1,227 @@
-.App {
-  text-align: center;
+:root {
+  --background-color: #151515; /* Default background color */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--background-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-container {
+  background-color: var(--background-color);
+  display: flex;
+  color: white;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.profile,
+.sidebar,
+.player {
+  padding: 20px;
+}
+
+.profile {
+  background-color: var(--background-color);
+  flex: 1;
+}
+
+.profile img {
+  height: 40px;
+  width: 133px;
+}
+
+.sidebar {
+  flex: 2;
   display: flex;
   flex-direction: column;
+}
+
+.player {
+  flex: 3;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  background-color: var(--background-color);
+}
+
+.tabs button {
+  font-size: 20px;
+  font-weight: bold;
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  color: #ffffff;
+  opacity: 50%;
+  background-color: var(--background-color);
+}
+.tabs button span {
+  font-weight: 700;
+}
+
+.tabs .active {
+  opacity: 100%;
+  color: #ffffff;
+}
+
+.searchbar {
+  position: relative;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.searchbar input::placeholder {
+  color: #FFFFFF; /* Replace with your desired color */
+  opacity: 60%;  /* Ensure the opacity is at full strength */
+  font-weight: 400;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.searchbar input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px;
+  margin-bottom: 10px;
+  border: 0px;
+  border-radius: 4px;
+  opacity: 60%;
+  background-color: #ffffff14;
+}
+
+.searchbar .search-icon {
+  position: absolute;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  opacity: 40%;
+  margin-bottom: 8px;
+  padding-right: 5px;
+}
+
+
+.audio-list {
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+  flex-grow: 1;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.audio-list::-webkit-scrollbar {
+  display: none;
+}
+
+.audio-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.listComponent {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 8px;
+}
+.listItemDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding-left: 16px;
+}
+
+.listItemDivImage {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.listItemContentDiv {
+  display: flex;
+  flex-direction: column;
+}
+.songName {
+  font-weight: 400;
+  font-size: 18px;
+}
+.songArtistname {
+  font-size: 14px;
+  opacity: 60%;
+}
+.songDuration {
+  padding-right: 16px;
+}
+
+.player {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.song-info {
+  margin-top: 12px;
+  padding: 0px 20px;
+}
+
+.songImgDiv {
+  padding: 0px 20px 0px;
+}
+
+.audio-image {
+  height: 300px;
+  width: 100%;
+}
+
+.audio-controls {
+  /* display: flex;
+  gap: 10px; */
+}
+
+/* hiding the audio start and end time */
+.rhap_time {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .profile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar {
+    order: 2;
+    flex: 1;
+  }
+
+  .player {
+    order: 1;
+    flex: 2;
+  }
+
+  .audio-list {
+    max-height: calc(100vh - 140px); /* Adjust this value to fit your layout */
+    overflow-y: auto;
+  }
+
+  .song-info {
+    margin-top: 25px;
+    padding: 0px 20px;
   }
 }
