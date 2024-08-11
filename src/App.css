@@ -79,6 +79,7 @@ body {
 }
 
 .searchbar input {
+  color: #FFFFFF;
   width: 100%;
   padding: 10px;
   padding-right: 40px;
